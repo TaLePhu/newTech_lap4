@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách môn học</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="content">
+        <table>
+            <caption>Danh sách các môn học</caption>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên môn học</th>
+                    <th>Loại môn học</th>
+                    <th>Học kỳ</th>
+                    <th>Khoa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% courses.forEach(item => { %>
+                    <tr>
+                        <td>
+                            <%= item.id %>
+                        </td>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.course_type %>
+                        </td>
+                        <td>
+                            <%= item.semester %>
+                        </td>
+                        <td>
+                            <%= item.department %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+        <!-- form -->
+        <form action="/save" method="post">
+            <input type="text" name="id" placeholder="Nhap id...`">
+            <br>
+            <input type="text" name="name" placeholder="enter your name"><br>
+            <input type="text" name="course_type" placeholder="enter your course type"><br>
+            <input type="text" name="semester" placeholder="enter your semester"><br>
+            <input type="text" name="department" placeholder="enter your department"><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
